@@ -18,7 +18,7 @@ public:
     double getWinRatio();
     double getLossRatio();
     bool loadStats();
-    bool saveStats(int win, int played);
+    int saveStats(int win, int played);
 };
 
 #endif // STATS_H
