@@ -1,6 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#define GAME 1
+#define STATS 2
+#define OPTIONS 3
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -37,17 +41,17 @@ void MainWindow::on_pushButton_quit_clicked()
 void MainWindow::on_pushButton_newGame_clicked()
 {
     // We change the current page of stackedWidget
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(GAME);
 }
 
 void MainWindow::on_pushButton_stats_clicked()
 {
     // We change the current page of stackedWidget
-    ui->stackedWidget->setCurrentIndex(2);
+    ui->stackedWidget->setCurrentIndex(STATS);
 }
 
 void MainWindow::on_pushButton_settings_clicked()
 {
     // We change the current page of stackedWidget
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(OPTIONS);
 }
