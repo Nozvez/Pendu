@@ -1,6 +1,9 @@
 #include "stats.h"
-#include <QFile>
-#include <QTextStream>
+#include <QDebug>
+
+#define OPEN_ERROR 1
+#define STATS_ERROR 2
+#define OK 3
 
 Stats::Stats()
 {
@@ -46,12 +49,26 @@ bool Stats::loadStats(){
     QTextStream flux(&file);
     flux >> win;
     flux >> played;
+    qDebug() << win << " " << played;
     setWinGames(win);
     setPlayedGames(played);
     return true;
 }
 
-bool Stats::saveStats(){
-    return true;
+int Stats::saveStats(int win, int played){
+
+    QFile file("stats.csv");
+    //On vérifie qu'il n'y ait pas plus de wins que de parties jouées
+    if(win > played){
+        return STATS_ERROR;
+    }
+    //On vérirfie les problèmes d'ouvertures du fichier
+    if(!file.open(QIODevice::WriteOnly)){
+        return OPEN_ERROR;
+    }
+    //On copie les valeurs fournies dans le fichier en .csv
+    QTextStream flux(&file);
+    flux<< win << " " << played;
+    return OK;
 }
 
