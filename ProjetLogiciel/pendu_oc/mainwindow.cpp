@@ -81,3 +81,9 @@ void MainWindow::on_pushButton_menuReturn_2_clicked()
     // We change the current page of stackedWidget
     ui->stackedWidget->setCurrentIndex(MENU);
 }
+
+void MainWindow::on_pushButton_menuReturn_3_clicked()
+{
+    // We change the current page of stackedWidget
+    ui->stackedWidget->setCurrentIndex(MENU);
+}
