@@ -56,6 +56,8 @@ private slots:
 
     void on_pushButton_menuReturn_2_clicked();
 
+    void on_pushButton_menuReturn_3_clicked();
+
 private:
     Ui::MainWindow *ui;
     /*******************************************************
