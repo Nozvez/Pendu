@@ -46,6 +46,16 @@ private slots:
     *******************************************************/
     void on_pushButton_settings_clicked();
 
+    void on_pushButton_reset_clicked();
+
+    void on_radioButton_soundOn_clicked(bool checked);
+
+    void on_radioButton_soundOff_clicked(bool checked);
+
+    void on_pushButton_menuReturn_clicked();
+
+    void on_pushButton_menuReturn_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     /*******************************************************
