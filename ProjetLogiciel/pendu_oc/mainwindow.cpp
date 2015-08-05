@@ -12,3 +12,42 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    // We don't close the program
+    event->ignore();
+    // We open the pop-up
+    if (QMessageBox::Yes == QMessageBox::question(this, tr("Fermeture"),tr("Voulez-vous vraiment quitter ?"),
+                                                  QMessageBox::Yes|QMessageBox::No)) {
+        // If user clicked 'yes' we close the program
+        event->accept();
+    } else {
+        // If he clicked 'no' we don't do anything
+        event->ignore();
+    }
+}
+
+void MainWindow::on_pushButton_quit_clicked()
+{
+    // We call the function closeEvent()
+    QWidget::close();
+}
+
+void MainWindow::on_pushButton_newGame_clicked()
+{
+    // We change the current page of stackedWidget
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_pushButton_stats_clicked()
+{
+    // We change the current page of stackedWidget
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+void MainWindow::on_pushButton_settings_clicked()
+{
+    // We change the current page of stackedWidget
+    ui->stackedWidget->setCurrentIndex(3);
+}
