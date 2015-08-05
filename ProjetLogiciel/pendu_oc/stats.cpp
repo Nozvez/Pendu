@@ -1,4 +1,6 @@
 #include "stats.h"
+#include <QFile>
+#include <QTextStream>
 
 Stats::Stats()
 {
@@ -30,4 +32,25 @@ double Stats::getWinRatio(){
 
 double Stats::getLossRatio(){
     return (double)(getPlayedGames()-getWinGames())/getPlayedGames();
+}
+
+bool loadStats(){
+
+    QFile file("stats.csv");
+    int win=0, played=0;
+
+    if(!file.open(QIODevice::ReadOnly)){
+        return false;
+    }
+
+    QTextStream flux(&file);
+    flux >> win;
+    flux >> played;
+    setWinGames(win);
+    setPlayedGames(played);
+    return true;
+}
+
+bool saveStats(){
+    return true;
 }

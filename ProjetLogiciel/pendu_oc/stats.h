@@ -14,6 +14,8 @@ public:
     void setWinGames(int value);
     double getWinRatio();
     double getLossRatio();
+    bool loadStats();
+    bool saveStats();
 };
 
 #endif // STATS_H
