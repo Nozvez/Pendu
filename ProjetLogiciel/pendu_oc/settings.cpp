@@ -37,8 +37,10 @@ int Settings::loadSettings()
         setAmbientSound(true);
     }
     else{
+        file.close();
         return SETTINGS_ERROR;
     }
+    file.close();
     return OK;
 }
 
@@ -59,5 +61,6 @@ int Settings::saveSettings(bool ambientSound)
     //On copie les valeurs fournies dans le fichier en .csv
     QTextStream flux(&file);
     flux << sound;
+    file.close();
     return OK;
 }
