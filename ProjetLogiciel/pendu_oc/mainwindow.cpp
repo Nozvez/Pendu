@@ -42,6 +42,8 @@ void MainWindow::on_pushButton_quit_clicked()
 
 void MainWindow::on_pushButton_newGame_clicked()
 {
+    // Pour le test - Génération de l'image
+    ui->label_image->setPixmap(QPixmap("../pendu_oc/lapin.jpg"));
     // We change the current page of stackedWidget
     ui->stackedWidget->setCurrentIndex(GAME);
 }
