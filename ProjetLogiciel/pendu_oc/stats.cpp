@@ -5,8 +5,21 @@
 #define STATS_ERROR 2
 #define OK 3
 
+//Constructeur par défaut
 Stats::Stats()
 {
+    setPlayedGames(0);
+    setWinGames(0);
+}
+
+Stats::Stats(int win, int played){
+    setPlayedGames(played);
+    setWinGames(win);
+}
+
+Stats::Stats(const Stats & toCopy){
+    setPlayedGames(toCopy.getPlayedGames());
+    setWinGames(toCopy.getWinGames());
 }
 
 int Stats::getWinGames() const
@@ -38,25 +51,24 @@ double Stats::getLossRatio(){
 }
 
 bool Stats::loadStats(){
-
     QFile file("stats.csv");
     int win=0, played=0;
 
+    //On vérifie l'ouverture correcte du fichier
     if(!file.open(QIODevice::ReadOnly)){
-        return false;
+        return OPEN_ERROR;
     }
 
+    //On sauvegarde les statistiques
     QTextStream flux(&file);
     flux >> win;
     flux >> played;
-    qDebug() << win << " " << played;
     setWinGames(win);
     setPlayedGames(played);
-    return true;
+    return OK;
 }
 
 int Stats::saveStats(int win, int played){
-
     QFile file("stats.csv");
     //On vérifie qu'il n'y ait pas plus de wins que de parties jouées
     if(win > played){
@@ -71,4 +83,3 @@ int Stats::saveStats(int win, int played){
     flux<< win << " " << played;
     return OK;
 }
-

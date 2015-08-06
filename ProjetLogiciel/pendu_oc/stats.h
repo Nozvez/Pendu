@@ -11,6 +11,8 @@ private:
        int winGames;
 public:
     Stats();
+    Stats(int win, int played);
+    Stats(const Stats & toCopy);
     int getPlayedGames() const;
     void setPlayedGames(int value);
     int getWinGames() const;
@@ -18,7 +20,7 @@ public:
     double getWinRatio();
     double getLossRatio();
     bool loadStats();
-    bool saveStats(int win, int played);
+    int saveStats(int win, int played);
 };
 
 #endif // STATS_H
