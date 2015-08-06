@@ -9,40 +9,58 @@ dictionnary::dictionnary()
 int dictionnary::countWords()
 {
     QFile file("../pendu_oc/dico.txt");
-    int words=0;
-    QString ligne;
+    int words = 0;
 
-    // We check the good On vérifie l'ouverture correcte du fichier
+    // We check that the file is opened
     if(file.open(QIODevice::ReadOnly)) {
         QTextStream flux(&file);
         while(!flux.atEnd()) {
-            ligne = flux.readLine();
+            flux.readLine();
             words++;
-            qDebug() <<"Nombre de lignes : " << words ;
         }
         file.close();
+        return words;
     }
     else {
         return OPEN_ERROR;
     }
-
-
-
-    ///////////////////////////////////////////////////////////////////////////////////
-
-    do {
-        lettre=fgetc(file);
-        if (lettre=='\n') {
-            words++;
-        }
-    }
-    while (lettre != EOF);
 }
 
 int dictionnary::randomNumber()
 {
+    qsrand(time_t(NULL));
+    return ( rand()%(countWords()) );
 }
 
 QString dictionnary::takeAWord()
 {
+    lineNumber = randomNumber();
+    if(lineNumber%2 == 0) {
+        lineNumber++;
+    }
+
+    QFile file("../pendu_oc/dico.txt");
+
+    if(file.open(QIODevice::ReadOnly)) {
+        QTextStream flux(&file);
+        for(int i=0; i<lineNumber; i++) {
+           generatedWord =  flux.readLine();
+        }
+        file.close();
+        return generatedWord;
+    }
+}
+
+QString dictionnary::takeAFrenchWord()
+{
+    QFile file("../pendu_oc/dico.txt");
+
+    if(file.open(QIODevice::ReadOnly)) {
+        QTextStream flux(&file);
+        for(int i=0; i<=lineNumber; i++) {
+           frenchTranslation =  flux.readLine();
+        }
+        file.close();
+        return frenchTranslation;
+    }
 }

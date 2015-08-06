@@ -4,6 +4,7 @@
 #include <QString>
 #include <QFile>
 #include <QTextStream>
+#include <QDebug>
 
 class dictionnary
 {
@@ -14,8 +15,11 @@ private:
     int countWords();
     int randomNumber();
     QString takeAWord();
+    QString takeAFrenchWord();
 
+    int lineNumber;
     QString generatedWord;
+    QString frenchTranslation;
 };
 
 #endif // DICTIONNARY_H

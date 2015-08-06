@@ -4,8 +4,10 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QCloseEvent>
+
 #include "settings.h"
 #include "stats.h"
+#include "dictionnary.h"
 
 namespace Ui {
 class MainWindow;
