@@ -46,7 +46,7 @@ int Settings::saveSettings(bool ambientSound)
 {
     QFile file("settings.csv");
     int sound=-1;
-    //On vérirfie les problèmes d'ouvertures du fichier
+    //On vérifie les problèmes d'ouvertures du fichier
     if(!file.open(QIODevice::WriteOnly)){
         return OPEN_ERROR;
     }

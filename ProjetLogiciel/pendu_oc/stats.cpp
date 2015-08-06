@@ -50,7 +50,7 @@ double Stats::getLossRatio(){
     return (double)(getPlayedGames()-getWinGames())/getPlayedGames();
 }
 
-bool Stats::loadStats(){
+int Stats::loadStats(){
     QFile file("stats.csv");
     int win=0, played=0;
 

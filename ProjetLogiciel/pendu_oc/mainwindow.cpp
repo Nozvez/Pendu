@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QDebug>
 
 #define MENU 0
 #define GAME 1
@@ -50,8 +51,15 @@ void MainWindow::on_pushButton_newGame_clicked()
 
 void MainWindow::on_pushButton_stats_clicked()
 {
+    if(myStats.loadStats()<3){
+        qDebug() << "Erreur lors du chargement";
+    }
+    else{
     // We change the current page of stackedWidget
     ui->stackedWidget->setCurrentIndex(STATS);
+    ui->label_wonGames->setText(QString::number(myStats.getWinGames()));
+    ui->label_lostGames->setText(QString::number(myStats.getPlayedGames()-myStats.getWinGames()));
+    }
 }
 
 void MainWindow::on_pushButton_settings_clicked()

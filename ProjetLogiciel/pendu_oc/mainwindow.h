@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QCloseEvent>
+#include "settings.h"
+#include "stats.h"
 
 namespace Ui {
 class MainWindow;
@@ -67,6 +69,8 @@ private:
     *
     *******************************************************/
     void closeEvent(QCloseEvent *event);
+    Stats myStats;
+    Settings mySettings;
 };
 
 #endif // MAINWINDOW_H
