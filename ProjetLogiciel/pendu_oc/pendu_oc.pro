@@ -15,10 +15,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     settings.cpp \
-    stats.cpp
+    stats.cpp \
+    dictionnary.cpp
 
 HEADERS  += mainwindow.h \
     settings.h \
-    stats.h
+    stats.h \
+    dictionnary.h
 
 FORMS    += mainwindow.ui
