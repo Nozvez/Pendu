@@ -11,6 +11,8 @@ private:
        int winGames;
 public:
     Stats();
+    Stats(int win, int played);
+    Stats(const Stats & toCopy);
     int getPlayedGames() const;
     void setPlayedGames(int value);
     int getWinGames() const;

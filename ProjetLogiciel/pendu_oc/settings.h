@@ -1,5 +1,7 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
+#include <QFile>
+#include <QTextStream>
 
 class Settings
 {
@@ -9,6 +11,8 @@ public:
         Settings();
         bool getAmbientSound() const;
         void setAmbientSound(bool value);
+        int loadSettings();
+        int saveSettings(bool ambientSound);
 };
 
 #endif // SETTINGS_H
