@@ -55,29 +55,50 @@ void MainWindow::on_pushButton_stats_clicked()
         qDebug() << "Erreur lors du chargement";
     }
     else{
-    // We change the current page of stackedWidget
-    ui->stackedWidget->setCurrentIndex(STATS);
-    ui->label_wonGames->setText(QString::number(myStats.getWinGames()));
-    ui->label_lostGames->setText(QString::number(myStats.getPlayedGames()-myStats.getWinGames()));
+        // We change the current page of stackedWidget
+        ui->stackedWidget->setCurrentIndex(STATS);
+        ui->label_wonGames->setText(QString::number(myStats.getWinGames()));
+        ui->label_lostGames->setText(QString::number(myStats.getPlayedGames()-myStats.getWinGames()));
     }
 }
 
 void MainWindow::on_pushButton_settings_clicked()
 {
-    // We change the current page of stackedWidget
-    ui->stackedWidget->setCurrentIndex(OPTIONS);
+    if(mySettings.loadSettings()<3){
+        qDebug() << "Erreur lors du chargement des options";
+    }
+    else{
+        // We change the current page of stackedWidget
+        ui->stackedWidget->setCurrentIndex(OPTIONS);
+        if(mySettings.getAmbientSound()){
+            ui->radioButton_soundOn->setChecked(true);
+            ui->radioButton_soundOff->setChecked(false);
+        }
+        else{
+            ui->radioButton_soundOn->setChecked(false);
+            ui->radioButton_soundOff->setChecked(true);
+        }
+    }
 }
 
 void MainWindow::on_pushButton_reset_clicked()
 {
+    myStats.saveStats(0,0);
+    on_pushButton_stats_clicked();
 }
 
 void MainWindow::on_radioButton_soundOn_clicked(bool checked)
 {
+    if(mySettings.saveSettings(checked)<3){
+        qDebug() << "Erreur !!!";
+    }
 }
 
 void MainWindow::on_radioButton_soundOff_clicked(bool checked)
 {
+    if(mySettings.saveSettings(!checked)<3){
+        qDebug() << "Erreur !!!";
+    }
 }
 
 void MainWindow::on_pushButton_menuReturn_clicked()
