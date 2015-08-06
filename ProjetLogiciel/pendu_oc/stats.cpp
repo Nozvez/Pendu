@@ -65,6 +65,7 @@ int Stats::loadStats(){
     flux >> played;
     setWinGames(win);
     setPlayedGames(played);
+    file.close();
     return OK;
 }
 
@@ -81,5 +82,6 @@ int Stats::saveStats(int win, int played){
     //On copie les valeurs fournies dans le fichier en .csv
     QTextStream flux(&file);
     flux<< win << " " << played;
+    file.close();
     return OK;
 }
