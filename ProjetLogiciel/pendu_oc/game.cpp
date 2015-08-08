@@ -94,11 +94,15 @@ QString game::drawPendu(int errors)
     }
 }
 
-char game::returnUsedLetters(int boucle)
+QVector<QChar> game::returnUsedLetters()
 {
-//    for(int i=0; i<26; i++) {
-//        if(getUsedLetters(i) == 1) {
-//            return 97+i;
-//        }
-//    }
+    QVector<QChar> usedLetters;
+
+    for(int i=0; i<26; i++) {
+        if(getUsedLetters(i) == 1) {
+            usedLetters.push_back(97+i);
+        }
+    }
+
+    return usedLetters;
 }

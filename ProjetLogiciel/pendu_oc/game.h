@@ -24,7 +24,7 @@ public:
     bool compareLettersToUsedLetters(QChar selectedLetter);
 
     QString drawPendu(int errors);
-    char returnUsedLetters(int boucle);
+    QVector<QChar> returnUsedLetters();
 
 
 private:
