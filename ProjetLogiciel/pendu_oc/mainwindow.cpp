@@ -35,6 +35,24 @@ void MainWindow::closeEvent(QCloseEvent *event)
     }
 }
 
+void MainWindow::launchGame()
+{
+    // I clear the previous word the user was looking for
+    currentWord.clear();
+    // I generate a word from the dictionnary
+    myGame.dico.takeAWord();
+    // And I take its translation
+    myGame.dico.takeAFrenchWord();
+
+    // I create the currentWord with stars for each letter of the generated word
+    for(int i=0; i<(myGame.dico.getGeneratedWord().size()); i++) {
+        currentWord += '*';
+    }
+
+    // I display the currentWord
+    ui->label_selectedWord->setText(currentWord);
+}
+
 void MainWindow::on_pushButton_quit_clicked()
 {
     // We call the function closeEvent()
@@ -47,6 +65,8 @@ void MainWindow::on_pushButton_newGame_clicked()
     ui->label_image->setPixmap(QPixmap( myGame.drawPendu(0) ));
     // We change the current page of stackedWidget
     ui->stackedWidget->setCurrentIndex(GAME);
+    // The game starts
+    launchGame();
 }
 
 void MainWindow::on_pushButton_stats_clicked()
@@ -117,4 +137,18 @@ void MainWindow::on_pushButton_menuReturn_3_clicked()
 {
     // We change the current page of stackedWidget
     ui->stackedWidget->setCurrentIndex(MENU);
+}
+
+void MainWindow::on_pushButton_proposeLetter_clicked()
+{
+    currentLetter = ui->lineEdit_userField->text().at(0);
+    if (myGame.compareLettersToUsedLetters(currentLetter)) {
+        if (myGame.compareLetterToWord(currentLetter)) {
+        }
+    }
+    else {
+        QMessageBox::Yes == QMessageBox::question(this, tr("Lettre utilisée"),
+                                                  tr("Vous avez déjà saisi cette lettre, veuillez en sélectionner une autre."),
+                                                      QMessageBox::Ok);
+    }
 }

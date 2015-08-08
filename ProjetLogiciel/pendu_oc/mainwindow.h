@@ -50,17 +50,34 @@ private slots:
     *******************************************************/
     void on_pushButton_settings_clicked();
 
+    /*******************************************************
+    *
+    *   When pushing button 'reset'
+    *
+    *******************************************************/
     void on_pushButton_reset_clicked();
 
+    /*******************************************************
+    *
+    *   When changing the settings
+    *
+    *   @param bool :   true when radio button is checked
+    *                   false when radio button is unchecked
+    *
+    *******************************************************/
     void on_radioButton_soundOn_clicked(bool checked);
-
     void on_radioButton_soundOff_clicked(bool checked);
 
+    /*******************************************************
+    *
+    *   When pushing button 'return to main menu'
+    *
+    *******************************************************/
     void on_pushButton_menuReturn_clicked();
-
     void on_pushButton_menuReturn_2_clicked();
-
     void on_pushButton_menuReturn_3_clicked();
+
+    void on_pushButton_proposeLetter_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -71,9 +88,20 @@ private:
     *
     *******************************************************/
     void closeEvent(QCloseEvent *event);
+
+    /*******************************************************
+    *
+    *   Function using to launch the new game
+    *
+    *******************************************************/
+    void launchGame();
+
     Stats myStats;
     Settings mySettings;
     game myGame;
+
+    QString currentWord;
+    QChar currentLetter;
 };
 
 #endif // MAINWINDOW_H

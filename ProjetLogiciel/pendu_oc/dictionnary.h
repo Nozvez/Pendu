@@ -19,11 +19,12 @@ public:
     QString getFrenchTranslation() const;
     void setFrenchTranslation(const QString &value);
 
+    QString takeAWord();
+    QString takeAFrenchWord();
+
 private:
     int countWords();
     int randomNumber();
-    QString takeAWord();
-    QString takeAFrenchWord();
 
     int lineNumber;
     QString generatedWord;

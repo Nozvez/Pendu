@@ -26,12 +26,12 @@ public:
     QString drawPendu(int errors);
     QVector<QChar> returnUsedLetters();
 
+    dictionnary dico;
 
 private:
     int errorsCount;
     QChar selectedLetter;
     int usedLetters[26];
-    dictionnary dico;
 };
 
 #endif // GAME_H
