@@ -11,6 +11,15 @@ class dictionnary
 public:
     dictionnary();
 
+    QString getGeneratedWord() const;
+    void setGeneratedWord(const QString &value);
+
+    QString getFrenchTranslation() const;
+    void setFrenchTranslation(const QString &value);
+
+    int getLineNumber() const;
+    void setLineNumber(int value);
+
 private:
     int countWords();
     int randomNumber();
