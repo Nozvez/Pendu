@@ -44,7 +44,13 @@ bool game::compareLetterToWord(QChar selectedLetter)
 
 bool game::compareLettersToUsedLetters(QChar selectedLetter)
 {
-
+    int value=selectedLetter.toLatin1()-97;
+    if(getUsedLetters(value)==1){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 int game::getErrorsCount() const
