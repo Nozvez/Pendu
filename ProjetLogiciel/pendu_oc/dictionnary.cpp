@@ -6,6 +6,7 @@ dictionnary::dictionnary()
 {
 }
 
+
 int dictionnary::countWords()
 {
     QFile file("../pendu_oc/dico.txt");
@@ -63,4 +64,34 @@ QString dictionnary::takeAFrenchWord()
         file.close();
         return frenchTranslation;
     }
+}
+
+int dictionnary::getLineNumber() const
+{
+    return lineNumber;
+}
+
+void dictionnary::setLineNumber(int value)
+{
+    lineNumber = value;
+}
+
+QString dictionnary::getGeneratedWord() const
+{
+    return generatedWord;
+}
+
+void dictionnary::setGeneratedWord(const QString &value)
+{
+    generatedWord = value;
+}
+
+QString dictionnary::getFrenchTranslation() const
+{
+    return frenchTranslation;
+}
+
+void dictionnary::setFrenchTranslation(const QString &value)
+{
+    frenchTranslation = value;
 }
