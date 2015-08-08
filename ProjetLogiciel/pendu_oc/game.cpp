@@ -88,3 +88,11 @@ QString game::drawPendu(int errors)
     }
 }
 
+char game::returnUsedLetters(int boucle)
+{
+//    for(int i=0; i<26; i++) {
+//        if(getUsedLetters(i) == 1) {
+//            return 97+i;
+//        }
+//    }
+}
