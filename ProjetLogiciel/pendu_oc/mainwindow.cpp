@@ -43,6 +43,8 @@ void MainWindow::on_pushButton_quit_clicked()
 
 void MainWindow::on_pushButton_newGame_clicked()
 {
+    // We draw the basic image of the 'pendu'
+    ui->label_image->setPixmap(QPixmap( myGame.drawPendu(0) ));
     // We change the current page of stackedWidget
     ui->stackedWidget->setCurrentIndex(GAME);
 }

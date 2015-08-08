@@ -7,7 +7,7 @@
 
 #include "settings.h"
 #include "stats.h"
-#include "dictionnary.h"
+#include "game.h"
 
 namespace Ui {
 class MainWindow;
@@ -73,6 +73,7 @@ private:
     void closeEvent(QCloseEvent *event);
     Stats myStats;
     Settings mySettings;
+    game myGame;
 };
 
 #endif // MAINWINDOW_H
