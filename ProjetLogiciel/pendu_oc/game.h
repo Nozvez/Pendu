@@ -1,12 +1,16 @@
 #ifndef GAME_H
 #define GAME_H
+
 #include "dictionnary.h"
 #include <QChar>
+
+#include <QDebug>
 
 class game
 {
 public:
     game();
+
     int getErrorsCount() const;
     void setErrorsCount(int value);
 
@@ -18,6 +22,9 @@ public:
 
     bool compareLetterToWord(QChar selectedLetter);
     bool compareLettersToUsedLetters(QChar selectedLetter);
+
+    QString drawPendu(int errors);
+
 
 private:
     int errorsCount;
