@@ -9,6 +9,7 @@ class game
 {
 public:
     game();
+
     QString drawPendu(int errors);
 
 private:
