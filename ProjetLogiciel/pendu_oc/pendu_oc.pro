@@ -16,11 +16,13 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     settings.cpp \
     stats.cpp \
-    dictionnary.cpp
+    dictionnary.cpp \
+    game.cpp
 
 HEADERS  += mainwindow.h \
     settings.h \
     stats.h \
-    dictionnary.h
+    dictionnary.h \
+    game.h
 
 FORMS    += mainwindow.ui
