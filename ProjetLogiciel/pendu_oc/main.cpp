@@ -7,8 +7,5 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    dictionnary *monPititDico = new dictionnary;
-    monPititDico->takeAWord();
-
     return a.exec();
 }
